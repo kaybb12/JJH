@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         btn_hiragana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),hiragana.class);
+                Intent intent = new Intent(getApplicationContext(),HiraganaActivity.class);
                 startActivity(intent);
             }
         });
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btn_katakana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),katakana.class);
+                Intent intent = new Intent(getApplicationContext(),KatakanaActivity.class);
                 startActivity(intent);
             }
         });
