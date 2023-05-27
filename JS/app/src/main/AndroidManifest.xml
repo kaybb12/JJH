@@ -8,10 +8,19 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:localeConfig="@xml/locales_config"
         android:supportsRtl="true"
         android:theme="@style/Theme.JS"
-        tools:targetApi="31"
-        android:localeConfig="@xml/locales_config">
+        tools:targetApi="31">
+        <activity
+            android:name=".word"
+            android:exported="false" />
+        <activity
+            android:name=".katakana"
+            android:exported="false" />
+        <activity
+            android:name=".hiragana"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
