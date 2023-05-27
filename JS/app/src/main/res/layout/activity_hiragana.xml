@@ -9,19 +9,21 @@
     tools:context=".hiragana">
 
     <TextView
+        android:id="@+id/txtHira"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
-        android:text="문제"
+        android:hint="문제"
         android:textStyle="bold"
         android:textSize="50sp"
         android:layout_gravity="center"
         />
 
     <EditText
+        android:id="@+id/editHira"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="답 입력"
+        android:hint="답 입력"
         android:textSize="30sp"
         android:layout_marginTop="200dp"
         android:layout_gravity="center"/>
@@ -31,6 +33,27 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/btnHirastart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시작하기"
+            android:background="#00ff0000"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_gravity="bottom|left"/>
+
+        <Button
+            android:id="@+id/btnHirahome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="홈"
+            android:background="#00ff0000"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginLeft="200dp"
+            android:layout_gravity="bottom|right"
+            />
 
     </LinearLayout>
 

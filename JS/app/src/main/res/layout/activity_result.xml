@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/note"
+    android:orientation="vertical"
+    tools:context=".result">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="점수"
+        android:layout_marginTop="250dp"
+        android:layout_gravity="center"
+        android:textSize="100sp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/btnResulthome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="홈"
+        android:background="#00ff0000"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>

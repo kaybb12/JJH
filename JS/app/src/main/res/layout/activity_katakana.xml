@@ -1,10 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/note"
+    android:orientation="vertical"
     tools:context=".katakana">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/txtKata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:hint="문제"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:layout_gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/editKata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="답 입력"
+        android:textSize="30sp"
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnKatastart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시작하기"
+            android:background="#00ff0000"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_gravity="bottom|left"/>
+
+        <Button
+            android:id="@+id/btnKatahome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="홈"
+            android:background="#00ff0000"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginLeft="200dp"
+            android:layout_gravity="bottom|right"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
