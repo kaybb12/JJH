@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/note"
     android:orientation="vertical"
-    tools:context=".katakana">
+    tools:context=".KatakanaActivity">
 
     <TextView
         android:id="@+id/txtKata"
