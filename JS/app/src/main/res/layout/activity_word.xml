@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/note"
+    android:background="@drawable/papago_3"
     android:orientation="vertical"
     >
 
@@ -36,6 +36,7 @@
         android:layout_weight="1"
         android:textSize="30sp"
         android:textStyle="bold"
+        android:gravity="center|top"
         android:hint="번역 결과"/>
 
 </LinearLayout>
