@@ -53,4 +53,18 @@
         android:layout_marginTop="25dp"
         />
 
+    <Button
+        android:id="@+id/btnTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시험용"
+        />
+
+    <ImageView
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/jeongdap"
+        android:id="@+id/img_test"/>
+
 </LinearLayout>
