@@ -19,14 +19,21 @@
         android:layout_gravity="center"
         />
 
-    <EditText
-        android:id="@+id/editHira"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="답 입력"
-        android:textSize="30sp"
-        android:layout_marginTop="200dp"
-        android:layout_gravity="center"/>
+        <EditText
+            android:id="@+id/editHira"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="200dp"
+            android:hint="답 입력"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnHirasub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="제출" />
 
     <LinearLayout
         android:layout_width="match_parent"

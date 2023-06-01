@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class KatakanaActivity extends AppCompatActivity {
 
@@ -16,6 +17,7 @@ public class KatakanaActivity extends AppCompatActivity {
 
         Button btnKatahome = (Button) findViewById(R.id.btnKatahome);
         Button btnKatastart = (Button) findViewById(R.id.btnKatastart);
+        Button btnKatasub = (Button) findViewById(R.id.btnKatasub);
 
         btnKatahome.setOnClickListener(new View.OnClickListener() {
             @Override

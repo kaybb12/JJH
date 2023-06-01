@@ -16,6 +16,7 @@ public class HiraganaActivity extends AppCompatActivity {
 
         Button btnHirahome = (Button) findViewById(R.id.btnHirahome);
         Button btnHirastart = (Button) findViewById(R.id.btnHirastart);
+        Button btnHirasub = (Button) findViewById(R.id.btnHirasub);
 
         btnHirahome.setOnClickListener(new View.OnClickListener() {
             @Override

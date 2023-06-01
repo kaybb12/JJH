@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btn_word.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent = new Intent(getApplicationContext(),word.class);
+               Intent intent = new Intent(getApplicationContext(), WordActivity.class);
                 startActivity(intent);
             }
         });
