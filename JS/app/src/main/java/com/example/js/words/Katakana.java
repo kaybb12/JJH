@@ -1,12 +1,19 @@
 package com.example.js.words;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class Katakana {
 
-    public static Vector<Voca> katakana = new Vector<Voca>();
+    public static ArrayList<Voca> katakana = new ArrayList<Voca>();
 
     public Katakana() {
+        if (katakana.size()==0)
+            init();
+    }
+
+    private static void init()
+    {
         //아
         katakana.add(new Voca("아", "ア"));
         katakana.add(new Voca("이", "イ"));
@@ -51,6 +58,8 @@ public class Katakana {
         katakana.add(new Voca("모", "モ"));
         //야
         katakana.add(new Voca("야", "ヤ"));
+        katakana.add(new Voca("야", "ヤ"));
+        katakana.add(new Voca("유", "ユ"));
         katakana.add(new Voca("유", "ユ"));
         katakana.add(new Voca("요", "ヨ"));
         //라
@@ -61,8 +70,15 @@ public class Katakana {
         katakana.add(new Voca("로", "ロ"));
         //와
         katakana.add(new Voca("와", "ワ"));
+        katakana.add(new Voca("와", "ワ"));
+        katakana.add(new Voca("와", "ワ"));
+        katakana.add(new Voca("오", "ヲ"));
         katakana.add(new Voca("오", "ヲ"));
         //응
+        katakana.add(new Voca("응", "ン"));
+        katakana.add(new Voca("응", "ン"));
+        katakana.add(new Voca("응", "ン"));
+        katakana.add(new Voca("응", "ン"));
         katakana.add(new Voca("응", "ン"));
         //가
         katakana.add(new Voca("가", "ガ"));
@@ -78,6 +94,8 @@ public class Katakana {
         katakana.add(new Voca("조", "ゾ"));
         //다
         katakana.add(new Voca("다", "ダ"));
+        katakana.add(new Voca("다", "ダ"));
+        katakana.add(new Voca("데", "デ"));
         katakana.add(new Voca("데", "デ"));
         katakana.add(new Voca("도", "ド"));
         //바
@@ -92,5 +110,11 @@ public class Katakana {
         katakana.add(new Voca("푸", "プ"));
         katakana.add(new Voca("페", "ペ"));
         katakana.add(new Voca("포", "ポ"));
+    }
+
+    static public Voca getVoca(int idx){
+        if (katakana.size()==0)
+            init();
+        return katakana.get(idx);
     }
 }

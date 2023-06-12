@@ -17,7 +17,31 @@
         android:textStyle="bold"
         android:textSize="50sp"
         android:layout_gravity="center"
+        android:gravity="center"
         />
+    <Button
+        android:id="@+id/btnKatasub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="정답 확인" />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+    <ImageView
+        android:visibility="invisible"
+        android:id="@+id/imgCorrect"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/jeongdap" />
+    <ImageView
+        android:visibility="invisible"
+        android:id="@+id/imgOdap"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/odap" />
 
     <EditText
         android:id="@+id/editKata"
@@ -25,16 +49,9 @@
         android:layout_height="wrap_content"
         android:hint="답 입력"
         android:textSize="30sp"
-        android:layout_marginTop="200dp"
-        android:layout_gravity="center"/>
-
-    <Button
-        android:id="@+id/btnKatasub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="제출" />
-
+        android:gravity="center"/>
+    </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -44,22 +61,18 @@
             android:id="@+id/btnKatastart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="시작하기"
-            android:background="#00ff0000"
-            android:textColor="@color/black"
+            android:text="최종결과 확인"
             android:textSize="20sp"
-            android:layout_gravity="bottom|left"/>
+            android:layout_gravity="bottom"/>
 
         <Button
             android:id="@+id/btnKatahome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="홈"
-            android:background="#00ff0000"
-            android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_marginLeft="200dp"
-            android:layout_gravity="bottom|right"
+            android:layout_marginLeft="150dp"
+            android:layout_gravity="bottom"
             />
 
     </LinearLayout>

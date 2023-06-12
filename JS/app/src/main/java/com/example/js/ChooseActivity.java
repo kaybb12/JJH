@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -12,16 +13,37 @@ import android.widget.RadioGroup;
 import android.widget.TableLayout;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Vector;
+
 public class ChooseActivity extends AppCompatActivity {
 
     Button btn_Choicehome, btn_Choicestart;
 
     RadioGroup Radchoice;
 
-    RadioButton RadHira, RadKata;
+    RadioButton RadHira ;
+    RadioButton RadKata ;
 
-    CheckBox Ha, Hk, Hs, Ht, Hn, Hh, Hm, Hy, Hr, Hw, Ho, Hg, Hj, Hd, Hb, Hp;
-    CheckBox Ka, Kk, Ks, Kt, Kn, Kh, Km, Ky, Kr, Kw, Ko, Kg, Kj, Kd, Kb, Kp;
+    CheckBox[] Hira = new CheckBox[16];
+    CheckBox[] Kata = new CheckBox[16];
+
+    private static final int  _A= 0;
+    private static final int  _K= 1;
+    private static final int  _S= 2;
+    private static final int  _T= 3;
+    private static final int  _N= 4;
+    private static final int  _H= 5;
+    private static final int  _M= 6;
+    private static final int  _Y= 7;
+    private static final int  _R= 8;
+    private static final int  _W= 9;
+    private static final int  _O= 10;
+    private static final int  _G= 11;
+    private static final int  _J= 12;
+    private static final int  _D= 13;
+    private static final int  _B= 14;
+    private static final int  _P= 15;
 
     TableLayout TabHira, TabKata;
 
@@ -33,43 +55,48 @@ public class ChooseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choose);
 
         //Hira checkBox
-        Ha = (CheckBox) findViewById(R.id.Cbx_Ha);
-        Hk = (CheckBox) findViewById(R.id.Cbx_Hk);
-        Hs = (CheckBox) findViewById(R.id.Cbx_Hs);
-        Ht = (CheckBox) findViewById(R.id.Cbx_Ht);
-        Hn = (CheckBox) findViewById(R.id.Cbx_Hn);
-        Hh = (CheckBox) findViewById(R.id.Cbx_Hh);
-        Hm = (CheckBox) findViewById(R.id.Cbx_Hm);
-        Hy = (CheckBox) findViewById(R.id.Cbx_Hy);
-        Hr = (CheckBox) findViewById(R.id.Cbx_Hr);
-        Ho = (CheckBox) findViewById(R.id.Cbx_Ho);
-        Hg = (CheckBox) findViewById(R.id.Cbx_Hg);
-        Hj = (CheckBox) findViewById(R.id.Cbx_Hj);
-        Hd = (CheckBox) findViewById(R.id.Cbx_Hd);
-        Hb = (CheckBox) findViewById(R.id.Cbx_Hb);
-        Hp = (CheckBox) findViewById(R.id.Cbx_Hp);
+        Hira[_A] = (CheckBox) findViewById(R.id.Cbx_Ha);
+        Hira[_K] = (CheckBox) findViewById(R.id.Cbx_Hk);
+        Hira[_S] = (CheckBox) findViewById(R.id.Cbx_Hs);
+        Hira[_T] = (CheckBox) findViewById(R.id.Cbx_Ht);
+        Hira[_N] = (CheckBox) findViewById(R.id.Cbx_Hn);
+        Hira[_H] = (CheckBox) findViewById(R.id.Cbx_Hh);
+        Hira[_M] = (CheckBox) findViewById(R.id.Cbx_Hm);
+        Hira[_Y] = (CheckBox) findViewById(R.id.Cbx_Hy);
+        Hira[_R] = (CheckBox) findViewById(R.id.Cbx_Hr);
+        Hira[_W] = (CheckBox) findViewById(R.id.Cbx_Hw);
+        Hira[_O] = (CheckBox) findViewById(R.id.Cbx_Ho);
+        Hira[_G] = (CheckBox) findViewById(R.id.Cbx_Hg);
+        Hira[_J] = (CheckBox) findViewById(R.id.Cbx_Hj);
+        Hira[_D] = (CheckBox) findViewById(R.id.Cbx_Hd);
+        Hira[_B] = (CheckBox) findViewById(R.id.Cbx_Hb);
+        Hira[_P] = (CheckBox) findViewById(R.id.Cbx_Hp);
         //Kata checkBox
-        Ka = (CheckBox) findViewById(R.id.Cbx_Ka);
-        Kk = (CheckBox) findViewById(R.id.Cbx_Kk);
-        Ks = (CheckBox) findViewById(R.id.Cbx_Ks);
-        Kt = (CheckBox) findViewById(R.id.Cbx_Kt);
-        Kn = (CheckBox) findViewById(R.id.Cbx_Kn);
-        Kh = (CheckBox) findViewById(R.id.Cbx_Kh);
-        Km = (CheckBox) findViewById(R.id.Cbx_Km);
-        Ky = (CheckBox) findViewById(R.id.Cbx_Ky);
-        Kr = (CheckBox) findViewById(R.id.Cbx_Kr);
-        Ko = (CheckBox) findViewById(R.id.Cbx_Ko);
-        Kg = (CheckBox) findViewById(R.id.Cbx_Kg);
-        Kj = (CheckBox) findViewById(R.id.Cbx_Kj);
-        Kd = (CheckBox) findViewById(R.id.Cbx_Kd);
-        Kb = (CheckBox) findViewById(R.id.Cbx_Kb);
-        Kp = (CheckBox) findViewById(R.id.Cbx_Kp);
+        Kata[_A] = (CheckBox) findViewById(R.id.Cbx_Ka);
+        Kata[_K] = (CheckBox) findViewById(R.id.Cbx_Kk);
+        Kata[_S] = (CheckBox) findViewById(R.id.Cbx_Ks);
+        Kata[_T] = (CheckBox) findViewById(R.id.Cbx_Kt);
+        Kata[_N] = (CheckBox) findViewById(R.id.Cbx_Kn);
+        Kata[_H] = (CheckBox) findViewById(R.id.Cbx_Kh);
+        Kata[_M] = (CheckBox) findViewById(R.id.Cbx_Km);
+        Kata[_Y] = (CheckBox) findViewById(R.id.Cbx_Ky);
+        Kata[_R] = (CheckBox) findViewById(R.id.Cbx_Kr);
+        Kata[_W] = (CheckBox) findViewById(R.id.Cbx_Kw);
+        Kata[_O] = (CheckBox) findViewById(R.id.Cbx_Ko);
+        Kata[_G] = (CheckBox) findViewById(R.id.Cbx_Kg);
+        Kata[_J] = (CheckBox) findViewById(R.id.Cbx_Kj);
+        Kata[_D] = (CheckBox) findViewById(R.id.Cbx_Kd);
+        Kata[_B] = (CheckBox) findViewById(R.id.Cbx_Kb);
+        Kata[_P] = (CheckBox) findViewById(R.id.Cbx_Kp);
 
         btn_Choicehome = (Button) findViewById(R.id.btnChoicehome);
         btn_Choicestart = (Button) findViewById(R.id.btnChostart);
         Radchoice = (RadioGroup) findViewById(R.id.Rad_choice);
         TabHira = (TableLayout) findViewById(R.id.TabHira);
         TabKata = (TableLayout) findViewById(R.id.TabKata);
+
+        RadHira = (RadioButton) findViewById(R.id.Rad_Hira);
+        RadKata = (RadioButton) findViewById(R.id.Rad_Kata);
 
         btn_Choicehome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,11 +112,17 @@ public class ChooseActivity extends AppCompatActivity {
                 if (WhatChoice == 1)
                 {
                     Intent intent = new Intent(getApplicationContext(),HiraganaActivity.class);
+
+                    intent.putExtra("HiraCheck",Checked(view));
                     startActivity(intent);
                 }
                 else if(WhatChoice == 2)
                 {
                     Intent intent = new Intent(getApplicationContext(),KatakanaActivity.class);
+
+                    intent.putExtra("KataCheck",Checked(view));
+                    ArrayList<Integer> vec = Checked(view);
+                    Log.d("선택값","123"+vec);
                     startActivity(intent);
                 }
                 else if (WhatChoice == 0)
@@ -118,8 +151,24 @@ public class ChooseActivity extends AppCompatActivity {
         });
     }
 
-    public String Checked(View v){
-        if (Ha.isChecked())
+    public ArrayList<Integer> Checked(View view){
 
+        ArrayList<Integer> vector = new ArrayList<Integer>();
+        for(int i = 0; i < 16; ++i)
+        {
+            if (RadHira.isChecked()) {
+                if (Hira[i].isChecked()) {
+                    for (int j = 0; j < 5; ++j)
+                        vector.add(i * 5 + j);
+                }
+            } else if (RadKata.isChecked()) {
+                if (Kata[i].isChecked())
+                {
+                    for(int j =0; j < 5; ++j)
+                        vector.add(i*5+j);
+                }
+            }
+        }
+        return vector;
     }
 }

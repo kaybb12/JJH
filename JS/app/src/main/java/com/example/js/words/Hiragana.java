@@ -1,5 +1,6 @@
 package com.example.js.words;
 
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
@@ -8,9 +9,13 @@ import java.util.AbstractMap;
 import java.util.Vector;
 
 public class Hiragana {
-    public static Vector<Voca> hiragana = new Vector<Voca>();
+    public static ArrayList<Voca> hiragana = new ArrayList<Voca>();
 
-    public Hiragana() {
+    public Hiragana(){
+        if (hiragana.size()==0)
+            init();
+    }
+    private static void init() {
         //아
         hiragana.add(new Voca("아", "あ"));
         hiragana.add(new Voca("이", "い"));
@@ -55,6 +60,8 @@ public class Hiragana {
         hiragana.add(new Voca("모", "も"));
         //야
         hiragana.add(new Voca("야", "や"));
+        hiragana.add(new Voca("야", "や"));
+        hiragana.add(new Voca("유", "ゆ"));
         hiragana.add(new Voca("유", "ゆ"));
         hiragana.add(new Voca("요", "よ"));
         //라
@@ -65,8 +72,15 @@ public class Hiragana {
         hiragana.add(new Voca("로", "ろ"));
         //와
         hiragana.add(new Voca("와", "わ"));
+        hiragana.add(new Voca("와", "わ"));
+        hiragana.add(new Voca("와", "わ"));
+        hiragana.add(new Voca("오", "を"));
         hiragana.add(new Voca("오", "を"));
         //응
+        hiragana.add(new Voca("응", "ん"));
+        hiragana.add(new Voca("응", "ん"));
+        hiragana.add(new Voca("응", "ん"));
+        hiragana.add(new Voca("응", "ん"));
         hiragana.add(new Voca("응", "ん"));
         //가
         hiragana.add(new Voca("가", "が"));
@@ -82,6 +96,8 @@ public class Hiragana {
         hiragana.add(new Voca("조", "ぞ"));
         //다
         hiragana.add(new Voca("다", "だ"));
+        hiragana.add(new Voca("다", "だ"));
+        hiragana.add(new Voca("데", "で"));
         hiragana.add(new Voca("데", "で"));
         hiragana.add(new Voca("도", "ど"));
         //바
@@ -96,5 +112,10 @@ public class Hiragana {
         hiragana.add(new Voca("푸", "ぷ"));
         hiragana.add(new Voca("페", "ぺ"));
         hiragana.add(new Voca("포", "ぽ"));
+    }
+    static public Voca getVoca(int idx){
+        if (hiragana.size()==0)
+            init();
+        return hiragana.get(idx);
     }
 }
