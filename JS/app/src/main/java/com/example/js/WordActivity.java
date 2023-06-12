@@ -1,5 +1,6 @@
 package com.example.js;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ import java.net.URLEncoder;
 
 public class WordActivity extends AppCompatActivity {
 
-  Button btnTrans;
+  Button btnTrans, btnTransHome;
   EditText edTrans;
   TextView txtTrans;
 
@@ -36,6 +37,7 @@ public class WordActivity extends AppCompatActivity {
         btnTrans = (Button) findViewById(R.id.btnTrans);
         txtTrans = (TextView) findViewById(R.id.txtTrans);
         edTrans = (EditText) findViewById(R.id.edTrans);
+        btnTransHome = (Button) findViewById(R.id.btnTranshome);
 
         btnTrans.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,14 +47,22 @@ public class WordActivity extends AppCompatActivity {
                 task.execute(tmp);
             }
         });
+
+        btnTransHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     class BackgroundTask extends AsyncTask<String,Void,String>{
         @RequiresApi(api= Build.VERSION_CODES.KITKAT)
         @Override
         protected String doInBackground(String... str) {
             String inputTest = str[0];
-            String clientId = "DPJtdhGUK3ywrhp3WgLT";
-            String clientSecret = "fFKGnhdDnC";
+            String clientId = "DUFUgQTEhwaLayTvrRuh";
+            String clientSecret = "fmW7Soz_pn";
             String result ="";
 
             try {

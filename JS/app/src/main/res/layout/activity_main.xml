@@ -18,6 +18,18 @@
         />
 
     <Button
+        android:id="@+id/btnExam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="글자 공부"
+        android:textSize="30sp"
+        android:background="#00ff0000"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        />
+<!--
+    <Button
         android:id="@+id/btnHira"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,12 +52,12 @@
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
         />
-
+-->
     <Button
         android:id="@+id/btnWord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="단어"
+        android:text="파파고 번역기"
         android:background="#00ff0000"
         android:textColor="@color/black"
         android:textSize="30sp"

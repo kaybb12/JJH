@@ -39,4 +39,16 @@
         android:gravity="center|top"
         android:hint="번역 결과"/>
 
+    <Button
+        android:id="@+id/btnTranshome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="홈"
+        android:background="#00ff0000"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginLeft="200dp"
+        android:layout_gravity="bottom|right"
+        />
+
 </LinearLayout>

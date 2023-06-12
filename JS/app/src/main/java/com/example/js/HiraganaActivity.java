@@ -12,8 +12,8 @@ import com.example.js.words.Hiragana;
 import com.example.js.words.Voca;
 
 public class HiraganaActivity extends AppCompatActivity {
-    ProblemSet problemSet;
-    Voca currentVoca;
+    ProblemSet problemSet; // 문제 생성 및 저장
+    Voca currentVoca; //현재 답 저장
 
     // 액티비티간 데이터 전송 찾아 볼 것
 
@@ -34,7 +34,7 @@ public class HiraganaActivity extends AppCompatActivity {
             }
         });
 
-        problemSet = new ProblemSet(, );
+       //problemSet = new ProblemSet(20,1); // 이전 액티비티에서 값 받아오기
     }
 
     void setNextProblem() {
@@ -49,11 +49,11 @@ public class HiraganaActivity extends AppCompatActivity {
     }
 
     // 답 제출시 onClick에서 호출하시면 됩니다.
-    // onclick에서 만약 return true 이면 problemSet의 currentCount++; 해줄것 !!
+    // onclick에서 만약 return true 이면 problemSet의 corectCount++; 해줄것 !!
     Boolean checkSolution(Integer num) {
         String answer = ""; // = EditText.getTest();
-        if (answer == currentVoca.kr)
+        if (answer == currentVoca.kr) //string compare사용
             return true;
-        return false;
+        else return false;
     }
 }

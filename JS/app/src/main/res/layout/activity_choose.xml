@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="공부할 문자종류를 선택하세요"
+        android:layout_gravity="center"
+        />
+
+    <RadioGroup
+        android:id="@+id/Rad_choice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/Rad_Hira"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="히라가나"
+            />
+        <RadioButton
+            android:id="@+id/Rad_Kata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="가타카나"
+            />
+    </RadioGroup>
+        <TableLayout
+            android:id="@+id/TabHira"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="공부할 단을 모두 선택해주세요"/>
+            <TableRow>
+                <CheckBox
+                    android:id="@+id/Cbx_Ha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="あ" />
+                <CheckBox
+                    android:id="@+id/Cbx_Hk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="か" />
+                <CheckBox
+                    android:id="@+id/Cbx_Hs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="さ" />
+                <CheckBox
+                    android:id="@+id/Cbx_Ht"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="た" />
+                <CheckBox
+                    android:id="@+id/Cbx_Hn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="な" />
+                <CheckBox
+                    android:id="@+id/Cbx_Hh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="は" />
+                <CheckBox
+                    android:id="@+id/Cbx_Hm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ま" />
+                <CheckBox
+                    android:id="@+id/Cbx_Hy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="や" />
+            </TableRow>
+        <TableRow>
+            <CheckBox
+                android:id="@+id/Cbx_Hr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ら" />
+            <CheckBox
+                android:id="@+id/Cbx_Hw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="わ" />
+            <CheckBox
+                android:id="@+id/Cbx_Ho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ん" />
+            <CheckBox
+                android:id="@+id/Cbx_Hg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="が" />
+            <CheckBox
+                android:id="@+id/Cbx_Hj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ざ" />
+            <CheckBox
+                android:id="@+id/Cbx_Hd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="だ" />
+            <CheckBox
+                android:id="@+id/Cbx_Hb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ば" />
+            <CheckBox
+                android:id="@+id/Cbx_Hp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ぱ" />
+        </TableRow>
+    </TableLayout>
+    <TableLayout
+        android:id="@+id/TabKata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="공부할 단을 모두 선택해주세요"/>
+        <TableRow>
+            <CheckBox
+                android:id="@+id/Cbx_Ka"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ア" />
+            <CheckBox
+                android:id="@+id/Cbx_Kk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="カ" />
+            <CheckBox
+                android:id="@+id/Cbx_Ks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="サ" />
+            <CheckBox
+                android:id="@+id/Cbx_Kt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="タ" />
+            <CheckBox
+                android:id="@+id/Cbx_Kn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ナ" />
+            <CheckBox
+                android:id="@+id/Cbx_Kh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ハ" />
+            <CheckBox
+                android:id="@+id/Cbx_Km"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="マ" />
+            <CheckBox
+                android:id="@+id/Cbx_Ky"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ヤ" />
+        </TableRow>
+        <TableRow>
+            <CheckBox
+                android:id="@+id/Cbx_Kr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ラ" />
+            <CheckBox
+                android:id="@+id/Cbx_Kw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ワ" />
+            <CheckBox
+                android:id="@+id/Cbx_Ko"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ン" />
+            <CheckBox
+                android:id="@+id/Cbx_Kg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ガ" />
+            <CheckBox
+                android:id="@+id/Cbx_Kj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ザ" />
+            <CheckBox
+                android:id="@+id/Cbx_Kd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ダ" />
+            <CheckBox
+                android:id="@+id/Cbx_Kb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="バ" />
+            <CheckBox
+                android:id="@+id/Cbx_Kp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="パ" />
+        </TableRow>
+    </TableLayout>
+    <Button
+        android:id="@+id/btnChostart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시작"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginLeft="200dp"
+        android:gravity="center"
+        />
+    <Button
+        android:id="@+id/btnChoicehome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="홈"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginLeft="200dp"
+        android:layout_gravity="bottom|right"
+        />
+</LinearLayout>
