@@ -15,6 +15,8 @@ public class ResultActivity extends AppCompatActivity {
 
     int CorrectNum;
 
+    int proNum;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +24,12 @@ public class ResultActivity extends AppCompatActivity {
 
         Intent it = getIntent();
         CorrectNum = it.getIntExtra("정답수",0);
+        proNum = it.getIntExtra("문제수",0);
 
         txtScore = (TextView) findViewById(R.id.txtScore);
         btnHome = (Button) findViewById(R.id.btnResulthome);
 
-        txtScore.setText("20/"+CorrectNum);
+        txtScore.setText(""+CorrectNum+"/"+proNum);
 
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override

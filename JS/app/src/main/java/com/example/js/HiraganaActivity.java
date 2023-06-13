@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -14,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.js.words.Hiragana;
 import com.example.js.words.Voca;
@@ -31,11 +34,15 @@ public class HiraganaActivity extends AppCompatActivity {
 
     String answer, correct;
 
-    ImageView imgJeongdap, imgOdap;
+    //ImageView imgJeongdap, imgOdap;
 
     Integer problemNum;
 
     Animation animFadein, animFadeout;
+
+    Toast t;
+
+    int proNum;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,7 +51,8 @@ public class HiraganaActivity extends AppCompatActivity {
 
         Intent it = getIntent();
         ArrayList<Integer> Hiravec = it.getIntegerArrayListExtra("HiraCheck");
-        problemSet = new ProblemSet(20,Hiravec);
+        proNum = it.getIntExtra("proNum",0);
+        problemSet = new ProblemSet(proNum,Hiravec);
         Log.d("디버깅",""+Hiravec);
 
         btnHirahome = (Button) findViewById(R.id.btnHirahome);
@@ -52,8 +60,8 @@ public class HiraganaActivity extends AppCompatActivity {
         btnHirasub = (Button) findViewById(R.id.btnHirasub);
         txtHira = (TextView) findViewById(R.id.txtHira);
         editHira = (EditText) findViewById(R.id.editHira);
-        imgJeongdap = (ImageView) findViewById(R.id.imgCorrect);
-        imgOdap = (ImageView) findViewById(R.id.imgOdap);
+        //imgJeongdap = (ImageView) findViewById(R.id.imgCorrect);
+        //imgOdap = (ImageView) findViewById(R.id.imgOdap);
         animFadein = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
         animFadeout = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadeout);
 
@@ -77,8 +85,16 @@ public class HiraganaActivity extends AppCompatActivity {
                     imgJeongdap.startAnimation(animFadeout);
                     imgJeongdap.setVisibility(View.INVISIBLE);
                     */
+                    //Toast.makeText(getApplicationContext(),"정답입니다"+currentVoca.kr+" : "+currentVoca.jp,Toast.LENGTH_SHORT).show();
+                    t = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT);
+                    LayoutInflater inflater = getLayoutInflater();
+                    View v = inflater.inflate(R.layout.toast,null);
+                    t.setView(v);
+
+                    t.setGravity(Gravity.CENTER,0,0);
+                    t.show();
+
                     problemSet.correctCount++;
-                    setNextProblem();
                 }
                 else if (checkSolution(problemNum)==false)
                 {
@@ -87,8 +103,18 @@ public class HiraganaActivity extends AppCompatActivity {
                     imgOdap.setAnimation(animFadeout);
                     imgOdap.setVisibility(View.INVISIBLE);
                     */
-                    setNextProblem();
+                    t = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT);
+                    LayoutInflater inflater = getLayoutInflater();
+                    View v = inflater.inflate(R.layout.toast1,null);
+                    t.setView(v);
+
+                    t.setGravity(Gravity.CENTER,0,0);
+
+                    t.show();
+
+                    Toast.makeText(getApplicationContext(),""+currentVoca.jp+":"+currentVoca.kr,Toast.LENGTH_SHORT).show();
                 }
+                setNextProblem();
             }
         });
 
@@ -98,6 +124,7 @@ public class HiraganaActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),ResultActivity.class);
 
                 intent.putExtra("정답수",problemSet.correctCount);
+                intent.putExtra("문제수",proNum);
                 startActivity(intent);
             }
         });

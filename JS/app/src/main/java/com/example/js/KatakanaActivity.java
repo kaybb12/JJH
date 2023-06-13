@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -12,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.js.words.Hiragana;
 import com.example.js.words.Katakana;
@@ -36,6 +39,10 @@ public class KatakanaActivity extends AppCompatActivity {
 
     Animation animFadein, animFadeout;
 
+    Toast t;
+
+    int proNum;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +50,8 @@ public class KatakanaActivity extends AppCompatActivity {
 
         Intent it = getIntent();
         ArrayList<Integer> Katavec = it.getIntegerArrayListExtra("KataCheck");
-        problemSet = new ProblemSet(20,Katavec);
+        proNum = it.getIntExtra("proNum",0);
+        problemSet = new ProblemSet(proNum,Katavec);
         Log.d("디버깅",""+Katavec);
 
         btnKatahome = (Button) findViewById(R.id.btnKatahome);
@@ -51,8 +59,8 @@ public class KatakanaActivity extends AppCompatActivity {
         btnKatasub = (Button) findViewById(R.id.btnKatasub);
         txtKata = (TextView) findViewById(R.id.txtKata);
         editKata = (EditText) findViewById(R.id.editKata);
-        imgJeongdap = (ImageView) findViewById(R.id.imgCorrect);
-        imgOdap = (ImageView) findViewById(R.id.imgOdap);
+        //imgJeongdap = (ImageView) findViewById(R.id.imgCorrect);
+        //imgOdap = (ImageView) findViewById(R.id.imgOdap);
         animFadein = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
         animFadeout = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadeout);
 
@@ -75,8 +83,15 @@ public class KatakanaActivity extends AppCompatActivity {
                     imgJeongdap.startAnimation(animFadeout);
                     imgJeongdap.setVisibility(View.INVISIBLE);
                     */
+                    t = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT);
+                    LayoutInflater inflater = getLayoutInflater();
+                    View v = inflater.inflate(R.layout.toast,null);
+                    t.setView(v);
+
+                    t.setGravity(Gravity.CENTER,0,0);
+                    t.show();
+
                     problemSet.correctCount++;
-                    setNextProblem();
                 }
                 else if (checkSolution(problemNum)==false)
                 {
@@ -85,8 +100,18 @@ public class KatakanaActivity extends AppCompatActivity {
                     imgOdap.setAnimation(animFadeout);
                     imgOdap.setVisibility(View.INVISIBLE);
                     */
-                    setNextProblem();
+                    t = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT);
+                    LayoutInflater inflater = getLayoutInflater();
+                    View v = inflater.inflate(R.layout.toast1,null);
+                    t.setView(v);
+
+                    t.setGravity(Gravity.CENTER,0,0);
+
+                    t.show();
+
+                    Toast.makeText(getApplicationContext(),""+currentVoca.jp+":"+currentVoca.kr,Toast.LENGTH_SHORT).show();
                 }
+                setNextProblem();
             }
         });
 
@@ -96,6 +121,7 @@ public class KatakanaActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),ResultActivity.class);
 
                 intent.putExtra("정답수",problemSet.correctCount);
+                intent.putExtra("문제수",proNum);
                 startActivity(intent);
             }
         });

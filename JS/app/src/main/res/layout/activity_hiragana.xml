@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="정답 확인" />
+    <!--
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,6 +42,8 @@
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:background="@drawable/odap" />
+            </FrameLayout>
+            -->
         <EditText
             android:id="@+id/editHira"
             android:layout_width="wrap_content"
@@ -50,7 +53,6 @@
             android:hint="답 입력"
             android:textSize="30sp"
             />
-    </FrameLayout>
     <LinearLayout
         android:id="@+id/LinTop"
         android:layout_width="match_parent"

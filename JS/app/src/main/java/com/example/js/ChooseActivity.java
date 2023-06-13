@@ -20,13 +20,16 @@ public class ChooseActivity extends AppCompatActivity {
 
     Button btn_Choicehome, btn_Choicestart;
 
-    RadioGroup Radchoice;
+    RadioGroup Radchoice, Radck;
 
     RadioButton RadHira ;
     RadioButton RadKata ;
 
     CheckBox[] Hira = new CheckBox[16];
     CheckBox[] Kata = new CheckBox[16];
+
+    RadioButton ck5, ck10, ck15, ck20;
+    int ck = 0;
 
     private static final int  _A= 0;
     private static final int  _K= 1;
@@ -89,9 +92,15 @@ public class ChooseActivity extends AppCompatActivity {
         Kata[_B] = (CheckBox) findViewById(R.id.Cbx_Kb);
         Kata[_P] = (CheckBox) findViewById(R.id.Cbx_Kp);
 
+        ck5 = (RadioButton) findViewById(R.id.ck5);
+        ck10 = (RadioButton) findViewById(R.id.ck10);
+        ck15 = (RadioButton) findViewById(R.id.ck15);
+        ck20 = (RadioButton) findViewById(R.id.ck20);
+
         btn_Choicehome = (Button) findViewById(R.id.btnChoicehome);
         btn_Choicestart = (Button) findViewById(R.id.btnChostart);
         Radchoice = (RadioGroup) findViewById(R.id.Rad_choice);
+        Radck = (RadioGroup) findViewById(R.id.RadCk);
         TabHira = (TableLayout) findViewById(R.id.TabHira);
         TabKata = (TableLayout) findViewById(R.id.TabKata);
 
@@ -101,7 +110,7 @@ public class ChooseActivity extends AppCompatActivity {
         btn_Choicehome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -109,25 +118,22 @@ public class ChooseActivity extends AppCompatActivity {
         btn_Choicestart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (WhatChoice == 1)
-                {
-                    Intent intent = new Intent(getApplicationContext(),HiraganaActivity.class);
+                if (WhatChoice == 1) {
+                    Intent intent = new Intent(getApplicationContext(), HiraganaActivity.class);
 
-                    intent.putExtra("HiraCheck",Checked(view));
+                    intent.putExtra("HiraCheck", Checked(view));
+                    intent.putExtra("proNum",ck);
                     startActivity(intent);
-                }
-                else if(WhatChoice == 2)
-                {
-                    Intent intent = new Intent(getApplicationContext(),KatakanaActivity.class);
+                } else if (WhatChoice == 2) {
+                    Intent intent = new Intent(getApplicationContext(), KatakanaActivity.class);
 
-                    intent.putExtra("KataCheck",Checked(view));
+                    intent.putExtra("KataCheck", Checked(view));
+                    intent.putExtra("proNum",ck);
                     ArrayList<Integer> vec = Checked(view);
-                    Log.d("선택값","123"+vec);
+                    Log.d("선택값", "123" + vec);
                     startActivity(intent);
-                }
-                else if (WhatChoice == 0)
-                {
-                    Toast.makeText(getApplicationContext(),"무엇을 공부할지 선택하세요",Toast.LENGTH_SHORT).show();
+                } else if (WhatChoice == 0) {
+                    Toast.makeText(getApplicationContext(), "무엇을 공부할지 선택하세요", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -135,18 +141,29 @@ public class ChooseActivity extends AppCompatActivity {
         Radchoice.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (i==R.id.Rad_Hira)
-                {
+                if (i == R.id.Rad_Hira) {
                     TabHira.setVisibility(View.VISIBLE);
                     TabKata.setVisibility(View.GONE);
                     WhatChoice = 1;//Hira
-                }
-                else if (i==R.id.Rad_Kata)
-                {
+                } else if (i == R.id.Rad_Kata) {
                     TabKata.setVisibility(View.VISIBLE);
                     TabHira.setVisibility(View.GONE);
                     WhatChoice = 2;//Kata
                 }
+            }
+        });
+
+        Radck.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == R.id.ck5)
+                    ck = 5;
+                else if (i == R.id.ck10)
+                    ck = 10;
+                else if (i == R.id.ck15)
+                    ck = 15;
+                else if (i == R.id.ck20)
+                    ck = 20;
             }
         });
     }
