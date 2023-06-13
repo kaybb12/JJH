@@ -89,9 +89,12 @@ public class KatakanaActivity extends AppCompatActivity {
                     t.setView(v);
 
                     t.setGravity(Gravity.CENTER,0,0);
+
                     t.show();
 
                     problemSet.correctCount++;
+
+                    setNextProblem();
                 }
                 else if (checkSolution(problemNum)==false)
                 {
@@ -110,8 +113,9 @@ public class KatakanaActivity extends AppCompatActivity {
                     t.show();
 
                     Toast.makeText(getApplicationContext(),""+currentVoca.jp+":"+currentVoca.kr,Toast.LENGTH_SHORT).show();
+
+                    setNextProblem();
                 }
-                setNextProblem();
             }
         });
 

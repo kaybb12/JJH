@@ -29,7 +29,7 @@ public class ChooseActivity extends AppCompatActivity {
     CheckBox[] Kata = new CheckBox[16];
 
     RadioButton ck5, ck10, ck15, ck20;
-    int ck = 0;
+    int ck = 10;
 
     private static final int  _A= 0;
     private static final int  _K= 1;
