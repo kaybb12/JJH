@@ -3,6 +3,7 @@ package com.example.js;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,7 +41,9 @@ public class HiraganaActivity extends AppCompatActivity {
 
     Animation animFadein, animFadeout;
 
-    Toast t;
+    Toast sToast;
+
+    TextView odap;
 
     int proNum;
 
@@ -65,6 +68,11 @@ public class HiraganaActivity extends AppCompatActivity {
         animFadein = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
         animFadeout = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadeout);
 
+        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = inflater.inflate(R.layout.toast1,null);
+        View v1 = inflater.inflate(R.layout.toast,null);
+        odap = (TextView)v.findViewById(R.id.odap);
+
 
         btnHirahome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,14 +93,10 @@ public class HiraganaActivity extends AppCompatActivity {
                     imgJeongdap.startAnimation(animFadeout);
                     imgJeongdap.setVisibility(View.INVISIBLE);
                     */
-                    //Toast.makeText(getApplicationContext(),"정답입니다"+currentVoca.kr+" : "+currentVoca.jp,Toast.LENGTH_SHORT).show();
-                    t = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT);
-                    LayoutInflater inflater = getLayoutInflater();
-                    View v = inflater.inflate(R.layout.toast,null);
-                    t.setView(v);
-
-                    t.setGravity(Gravity.CENTER,0,0);
-                    t.show();
+                    sToast = Toast.makeText(getApplicationContext(),"", Toast.LENGTH_SHORT);
+                    sToast.setView(v1);
+                    sToast.setGravity(Gravity.CENTER,0,0);
+                    sToast.show();
 
                     setNextProblem();
 
@@ -100,21 +104,11 @@ public class HiraganaActivity extends AppCompatActivity {
                 }
                 else if (checkSolution(problemNum)==false)
                 {
-                    /*
-                    imgOdap.setVisibility(View.VISIBLE);
-                    imgOdap.setAnimation(animFadeout);
-                    imgOdap.setVisibility(View.INVISIBLE);
-                    */
-                    t = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT);
-                    LayoutInflater inflater = getLayoutInflater();
-                    View v = inflater.inflate(R.layout.toast1,null);
-                    t.setView(v);
-
-                    t.setGravity(Gravity.CENTER,0,0);
-
-                    t.show();
-
-                    Toast.makeText(getApplicationContext(),""+currentVoca.jp+":"+currentVoca.kr,Toast.LENGTH_SHORT).show();
+                    odap.setText(""+currentVoca.jp+":"+currentVoca.kr);
+                    sToast = Toast.makeText(getApplicationContext(),"", Toast.LENGTH_SHORT);
+                    sToast.setView(v);
+                    sToast.setGravity(Gravity.CENTER,0,0);
+                    sToast.show();
 
                     setNextProblem();
                 }

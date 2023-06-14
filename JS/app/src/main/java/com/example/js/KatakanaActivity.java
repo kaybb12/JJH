@@ -2,6 +2,7 @@ package com.example.js;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,6 +44,8 @@ public class KatakanaActivity extends AppCompatActivity {
 
     int proNum;
 
+    TextView odap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,10 +62,11 @@ public class KatakanaActivity extends AppCompatActivity {
         btnKatasub = (Button) findViewById(R.id.btnKatasub);
         txtKata = (TextView) findViewById(R.id.txtKata);
         editKata = (EditText) findViewById(R.id.editKata);
-        //imgJeongdap = (ImageView) findViewById(R.id.imgCorrect);
-        //imgOdap = (ImageView) findViewById(R.id.imgOdap);
-        animFadein = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein);
-        animFadeout = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadeout);
+
+        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = inflater.inflate(R.layout.toast1,null);
+        View v1 = inflater.inflate(R.layout.toast,null);
+        odap = (TextView)v.findViewById(R.id.odap);
 
         btnKatahome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,17 +83,9 @@ public class KatakanaActivity extends AppCompatActivity {
                 checkSolution(problemNum);
                 if (checkSolution(problemNum)==true)
                 {
-                 /* imgJeongdap.setVisibility(View.VISIBLE);
-                    imgJeongdap.startAnimation(animFadeout);
-                    imgJeongdap.setVisibility(View.INVISIBLE);
-                    */
                     t = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT);
-                    LayoutInflater inflater = getLayoutInflater();
-                    View v = inflater.inflate(R.layout.toast,null);
-                    t.setView(v);
-
+                    t.setView(v1);
                     t.setGravity(Gravity.CENTER,0,0);
-
                     t.show();
 
                     problemSet.correctCount++;
@@ -98,21 +94,11 @@ public class KatakanaActivity extends AppCompatActivity {
                 }
                 else if (checkSolution(problemNum)==false)
                 {
-                    /*
-                    imgOdap.setVisibility(View.VISIBLE);
-                    imgOdap.setAnimation(animFadeout);
-                    imgOdap.setVisibility(View.INVISIBLE);
-                    */
+                    odap.setText(""+currentVoca.jp+":"+currentVoca.kr);
                     t = Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT);
-                    LayoutInflater inflater = getLayoutInflater();
-                    View v = inflater.inflate(R.layout.toast1,null);
                     t.setView(v);
-
                     t.setGravity(Gravity.CENTER,0,0);
-
                     t.show();
-
-                    Toast.makeText(getApplicationContext(),""+currentVoca.jp+":"+currentVoca.kr,Toast.LENGTH_SHORT).show();
 
                     setNextProblem();
                 }

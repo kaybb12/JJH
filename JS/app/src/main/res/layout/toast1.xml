@@ -4,10 +4,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center">
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/odap"
         />
+    <TextView
+        android:id="@+id/odap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="문제 : 정답"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+</FrameLayout>
+
 </LinearLayout>
